@@ -2,7 +2,7 @@
 
 Spring is a `light weighted`, `open source`, `JavaEE framework`
 
-![](/Notes/images/springFramework.jfif)
+![springFramework](/Notes/images/springFramework.jfif)
 
 ### Two core part
 
@@ -12,4 +12,9 @@ AOP: Aspect-Oriented Programming (modify functionality without modifying source 
 
 ### Property
 
-1. 
+1. Enable decoupling, facilitate development;
+2. Support AOP
+3. Simplify testing
+4. Simplify integrating other Frameworks
+5. Simplify transaction
+6. Simplify use of API
