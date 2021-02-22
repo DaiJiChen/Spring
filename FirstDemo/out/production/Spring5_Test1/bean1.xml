@@ -3,7 +3,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--1 配置User对象创建-->
+    <!-- 配置User对象创建-->
     <bean id="user" class="com.sit.jichen.User"></bean>
+
+
+<!--  setter() method property injection  -->
+    <!--  1. create oject  -->
+    <bean id="book" class="com.sit.jichen.Book">
+        <!--  2. use property tag to inject property
+            name: filed name
+            value: value to be assigned
+        -->
+        <property name="name" value="The Alchemist"></property>
+        <property name="author" value="author1"></property>
+    </bean>
+
+<!--  constructor() property injection  -->
+    <!--  1. create object  -->
+    <bean id="orders" class="com.sit.jichen.Orders">
+        <constructor-arg name="oname" value="computer"></constructor-arg>
+        <constructor-arg name="address" value="China"></constructor-arg>
+    </bean>
 
 </beans>
