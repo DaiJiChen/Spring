@@ -24,13 +24,11 @@ Concrete Class of AllpicationContext interface
 ![ApplicationContext.jpg](/Notes/images/ApplicationContext.jpg)
 
 
-## Bean Management 
+## Bean Management  with XML
 
 `Object Creation` and `Property Injection`
 
-### Bean management method 1: XML Config File
-
-#### 1. Create Object (XML)
+### 1. Create Object  with XML
 
 use bean tag in xml, add corresponding properties.
 
@@ -43,13 +41,13 @@ Use the constructor that has no parameters by default when creating object
       <bean id="user" class="com.sit.jichen.User"></bean>
 ```
 
-#### 2. Property Injection (XML)
+### 2. Property Injection  with XML
 
 DI (Dependency Injection 依赖注入）： 就是 Property Injection （依赖注入）， 就是给class的field赋值
 
 Two way of injection
 
-1. use setter() method
+#### DI use setter() method
 
 write class
 ```
@@ -98,7 +96,7 @@ b. Config properties injection in Spring XML Config file
     }
  ```
  
-2. Use Constructor with property for property injection
+#### DI Use Constructor with property for property injection
 
 create class
 
@@ -145,8 +143,12 @@ test
 ```
 
 
+#### DI use setter() method - a easier way: 使用p名称空间注入
 
+```
+    <bean id="book" class="com.sit.jichen.Book" p:name="a" p.author="jichen"></bean>
+```
 
-### Bean management method 2: Annotation
+#### 
 
 
