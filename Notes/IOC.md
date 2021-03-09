@@ -154,4 +154,81 @@ test
     </bean>
 ```
 
+#### Inject Array, Set, List, Map
 
+```xml
+    <bean id="student" class="collection.Student">
+
+        <property name="array">
+            <array>
+                <value>array_val1</value>
+                <value>array_val2</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>list_val1</value>
+                <value>list_val2</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"></entry>
+                <entry key="key2" value="value2"></entry>
+            </map>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>set_val1</value>
+                <value>set_val2</value>
+            </set>
+        </property>
+
+    </bean>
+```
+
+What if item of collection is objects
+
+```xml
+<bean id="student" class="collection.Student">
+        <property name="list">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course1"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="course1" class="collection.Course">
+        <property name="name" value="java"></property>
+    </bean>
+
+    <bean id="course2" class="collection.Course">
+        <property name="name" value="database"></property>
+    </bean>
+```
+
+Put a cillection outside of `<property> </property>`, to let the collection reuseable
+
+```xml
+<!--add util schema-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/beans/spring-util.xsd">
+```
+
+```xml
+    <util:set id="set">
+        <value>set_val1</value>
+        <value>set_val2</value>
+    </util:set>
+```
+
+```xml
+<property name="set" ref="set"></property>
+```
