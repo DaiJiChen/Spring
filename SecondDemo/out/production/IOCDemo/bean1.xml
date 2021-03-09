@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置User对象创建-->
+    <bean id="student" class="collection.Student">
+
+        <property name="array">
+            <array>
+                <value>array_val1</value>
+                <value>array_val2</value>
+                <value>array_val3</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>list_val1</value>
+                <value>list_val2</value>
+                <value>list_val3</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"></entry>
+                <entry key="key2" value="value2"></entry>
+                <entry key="key3" value="value3"></entry>
+            </map>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>set_val1</value>
+                <value>set_val2</value>
+                <value>set_val3</value>
+            </set>
+        </property>
+
+    </bean>
+
+</beans>

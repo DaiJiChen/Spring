@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestBean {
 
     @Test
-    public void testAdd() {
+    public void testOuterBeanInject() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
 
         UserService userService = context.getBean("UserService", UserService.class);
@@ -18,7 +18,7 @@ public class TestBean {
     }
 
     @Test
-    public void testInnerBean() {
+    public void testInnerBeanInject() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean3.xml");
 
         Employer employer = context.getBean("employer", Employer.class);
