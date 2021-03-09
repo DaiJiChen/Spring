@@ -16,6 +16,9 @@
         -->
         <property name="name" value="The Alchemist"></property>
         <property name="author" value="author1"></property>
+        <property name="address">
+            <null/>
+        </property>
     </bean>
 
 <!--  constructor() property injection  -->

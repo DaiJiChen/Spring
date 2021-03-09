@@ -6,9 +6,14 @@ package com.sit.jichen;
 public class Book {
     private String name;
     private String author;
+    private String address;
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setName(String name) {
@@ -26,6 +31,7 @@ public class Book {
         return "Book{" +
                 "name='" + name + '\'' +
                 ", author='" + author + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

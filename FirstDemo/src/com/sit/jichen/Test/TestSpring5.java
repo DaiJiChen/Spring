@@ -18,7 +18,6 @@ public class TestSpring5 {
         User user = context.getBean("user", User.class);
 
         System.out.println(user);
-
         user.add();
     }
 
