@@ -46,20 +46,10 @@ Two way of injection
 
 #### DI use setter() method
 
-write class
 ```
-public class Book {
-    private String bname;
-    private String bauthor;
-
-    public void setBauthor(String bauthor) {
-        this.bauthor = bauthor;
-    }
-
     public void setBname(String bname) {
         this.bname = bname;
     }
-
 }
 ```
 configure in XML
@@ -81,16 +71,6 @@ b. Config properties injection in Spring XML Config file
         <property name="name" value="The Alchemist"></property>
         <property name="author" value="author1"></property>
     </bean>
- ```
- 
- test
- ```
-    @Test
-    public void testBook1() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
-        Book book = context.getBean("book", Book.class);
-        System.out.println(book.toString());
-    }
  ```
  
  #### 使用p名称空间注入属性
@@ -123,31 +103,17 @@ b. Config properties injection in Spring XML Config file
  
 #### DI Use Constructor with property for property injection
 
-create class
 
 ```
-public class Orders {
-    private String oname;
-    private String address;
-
     public Orders(String oname, String address) {
         this.oname = oname;
         this.address = address;
     }
-
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "oname='" + oname + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-}
 ```
 
 config in XML
 
-```
+```xml
 <!--  constructor() property injection  -->
     <!--  1. create object  -->
     <bean id="orders" class="com.sit.jichen.Orders">
@@ -158,14 +124,34 @@ config in XML
 
 test
 
-```
-    @Test
-    public void testOrder() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
-        Orders order = context.getBean("orders", Orders.class);
-        System.out.println(order.toString());
-    }
+
+#### inject outer bean: use `ref`
+
+```xml
+    <!--create UserService object and ConcreteUser object-->
+    <bean id="UserService" class="com.sit.jichen.service.UserService">
+        <!--inject user object: use 'ref' -->
+        <property name="user" ref="ConcreteUser"></property>
+    </bean>
+
+    <bean id="ConcreteUser" class="com.sit.jichen.dao.ConcreteUser"></bean>
 ```
 
+#### Inject inner bean
+
+```xml
+    <bean id="employer" class="com.sit.jichen.bean.Employer">
+        <property name="name" value="Jichen"></property>
+        <property name="gender" value="Female"></property>
+
+        <!--set object property using inner bean-->
+        <property name="dept">
+            <bean id="Department" class="com.sit.jichen.bean.Department">
+                <property name="deptName" value="security department"></property>
+            </bean>
+        </property>
+
+    </bean>
+```
 
 
