@@ -24,9 +24,6 @@ Concrete Class of AllpicationContext interface
 ![ApplicationContext.jpg](/Notes/images/ApplicationContext.jpg)
 
 
-## Bean Management  with XML
-
-`Object Creation` and `Property Injection`
 
 ### 1. Create Object  with XML
 
@@ -96,6 +93,34 @@ b. Config properties injection in Spring XML Config file
     }
  ```
  
+ #### 使用p名称空间注入属性
+
+```
+    <bean id="book" class="com.sit.jichen.Book" p:name="a" p.author="jichen"></bean>
+```
+
+#### Inject `null`
+
+```
+<property name = "address">
+        <null/>
+</property>
+```
+
+#### Inject special character
+
+1. use escape characters
+```
+    <property name="address" value="&lt;&lt;The Alchemist&gt;&gt;"></propert>
+```
+
+2. put special value in ![CDATA[   ]]
+```
+<property name="address">
+    <value><![CDATA[<<The Alchemist>>]]></value>
+</property>
+```
+ 
 #### DI Use Constructor with property for property injection
 
 create class
@@ -142,13 +167,5 @@ test
     }
 ```
 
-
-#### DI use setter() method - a easier way: 使用p名称空间注入
-
-```
-    <bean id="book" class="com.sit.jichen.Book" p:name="a" p.author="jichen"></bean>
-```
-
-#### 
 
 
