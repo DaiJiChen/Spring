@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--create UserService object and ConcreteUser object-->
+    <bean id="UserService" class="com.sit.jichen.service.UserService">
+        <!--inject user object: use 'ref' -->
+        <property name="user" ref="ConcreteUser"></property>
+    </bean>
+
+    <bean id="ConcreteUser" class="com.sit.jichen.dao.ConcreteUser"></bean>
+
+
+</beans>
