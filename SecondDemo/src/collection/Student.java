@@ -6,16 +6,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class Student {
-    //Array
     private String[] array;
 
     private Set<String> set;
 
-    private List<String> list;
+    private List<Course> list;
 
     private Map<String, String> map;
 
-    public void setList(List<String> list) {
+    public void setList(List<Course> list) {
         this.list = list;
     }
 

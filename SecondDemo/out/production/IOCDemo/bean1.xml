@@ -10,15 +10,13 @@
             <array>
                 <value>array_val1</value>
                 <value>array_val2</value>
-                <value>array_val3</value>
             </array>
         </property>
 
         <property name="list">
             <list>
-                <value>list_val1</value>
-                <value>list_val2</value>
-                <value>list_val3</value>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
             </list>
         </property>
 
@@ -26,7 +24,6 @@
             <map>
                 <entry key="key1" value="value1"></entry>
                 <entry key="key2" value="value2"></entry>
-                <entry key="key3" value="value3"></entry>
             </map>
         </property>
 
@@ -34,10 +31,17 @@
             <set>
                 <value>set_val1</value>
                 <value>set_val2</value>
-                <value>set_val3</value>
             </set>
         </property>
 
+    </bean>
+
+    <bean id="course1" class="collection.Course">
+        <property name="name" value="java"></property>
+    </bean>
+
+    <bean id="course2" class="collection.Course">
+        <property name="name" value="database"></property>
     </bean>
 
 </beans>

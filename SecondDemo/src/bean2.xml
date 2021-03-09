@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--extract a set outside of property-->
+    <util:set id="set">
+        <value>set_val1</value>
+        <value>set_val2</value>
+    </util:set>
 
     <!-- 配置User对象创建-->
     <bean id="student" class="collection.Student">
@@ -27,12 +35,7 @@
             </map>
         </property>
 
-        <property name="set">
-            <set>
-                <value>set_val1</value>
-                <value>set_val2</value>
-            </set>
-        </property>
+        <property name="set" ref="set"></property>
 
     </bean>
 

@@ -13,4 +13,13 @@ public class testCollection {
 
         System.out.println(student.toString());
     }
+
+    @Test
+    public void testCollection2() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+
+        Student student = context.getBean("student", Student.class);
+
+        System.out.println(student.toString());
+    }
 }
