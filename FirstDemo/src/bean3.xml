@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="employer" class="com.sit.jichen.bean.Employer">
+        <property name="name" value="Jichen"></property>
+        <property name="gender" value="Female"></property>
+
+        <!--set object property using inner bean-->
+        <property name="dept">
+            <bean id="Department" class="com.sit.jichen.bean.Department">
+                <property name="deptName" value="security department"></property>
+            </bean>
+        </property>
+
+    </bean>
+
+
+
+
+
+
+</beans>
